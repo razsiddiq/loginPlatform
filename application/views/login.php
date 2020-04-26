@@ -1,0 +1,91 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?=$title;?></title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/themify-icons.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/scss/style.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+	
+	<!-- /global stylesheets -->
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/js/toastr/toastr.min.css">
+
+	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+</head>
+<body>
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo animated swing">
+                    <a href="#">
+                    <img src="<?php echo base_url();?>assets/img/logo.svg" alt="<?=$title;?>" title="<?=$title;?>"/>
+                    </a>
+                </div>
+                <div class="login-form animated bounceIn" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
+                    <form method="post" name="login-form" id="login-form" data-form-table="login" data-redirect="<?php echo base_url();?>">
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" name="email" class="form-control" autocomplete=”off” placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password">
+                        </div>
+                        <!-- <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                            <label class="pull-right">
+                                <a href="#">Forgotten Password?</a> 
+                            </label>
+
+                        </div> -->
+                        <!-- <input type="text" name="<?php //echo $this->security->get_csrf_token_name();?>" value="<?php //echo $this->security->get_csrf_hash();?>">  -->
+                        <!-- <input type="hidden" name="ridirectpath" value="<?=$applicationname;?>"/> -->
+						<button type="submit" class="btn btn-success-1 btn-flat m-b-30 m-t-30 save">Sign in</button>     
+						                
+                        <!-- <div class="register-link m-t-20 text-center">
+                            <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="<?php echo base_url();?>assets/js/vendor/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/popper.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/plugins.js"></script>
+	<script src="<?php echo base_url();?>assets/js/main.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/js/toastr/toastr.min.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function(){
+		toastr.options.closeButton = true;
+		toastr.options.progressBar = true;
+		toastr.options.timeOut = 3000;
+		toastr.options.preventDuplicates = true;
+	});
+	</script>
+	<script type="text/javascript">
+		var base_url 	= '<?php echo base_url(); ?>';
+		var assets_url 	= '<?php echo base_url(); ?>/assets/';
+	</script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/customs/login.js?version=<?=strtotime(date('Y-m-d H:i:s'));?>"></script>
+</body>
+</html>

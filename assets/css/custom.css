@@ -1,0 +1,29 @@
+html,body{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.badge-danger-1 {
+    background: #FE5C5C;
+    border-radius: 10.5px;
+    color: white;
+    padding: 5px;
+}
+
+.badge-success-1 {
+  background: #13B58C;
+  border-radius: 10.5px;
+  color: white;
+  padding: 5px;
+}
+
+.btn-success-1 {
+  color: #fff;
+  background-color: #13B58C;
+  border-color: #13B58C;
+}
+
+.btn-success-1:hover {
+  color: #fff;
+  background-color: #53C9AB;
+  border-color: #53C9AB;
+}
