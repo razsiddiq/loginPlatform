@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] =  (ENVIRONMENT == 'production') ? 'https://admin-dev.tradly.app/' :'http://localhost/loginPlatform/';
+$config['base_url'] =  (ENVIRONMENT == 'production') ? 'https://id.tradly.app/' :'http://localhost/loginPlatform/';
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'Tlb12NUietMtsVZN6cxqiB9jMdCIFBQJ';
 
 /*
 |--------------------------------------------------------------------------
@@ -400,7 +400,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']	= 'auth';
+$config['cookie_prefix']	= 'auth_';
 $config['cookie_domain']	= '.tradly.app';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= TRUE;

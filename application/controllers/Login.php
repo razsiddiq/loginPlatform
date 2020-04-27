@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Login extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -35,18 +35,29 @@ class Welcome extends CI_Controller {
 		$data['title'] = APPLICATION_NAME;
 
 		$data['applicationname'] = ($this->input->get('application')) ?? 'onboarding';
-		echo "SDf";
-		show_data($this->session->userdata('username'));
+		
 		if($this->session->userdata('username')){
 			$sessionData = $this->session->userdata('username');
 			
-			$authkeycokkie = md5('authkeycookie');
-			$authkeyvalue = base64_encode($sessionData->key->auth_key);
+			//$authkeycokkie = md5('authkeycookie');
+			//$authkeyvalue = base64_encode($sessionData->key->auth_key);
 			
 		}
 
-		setcookie('authkeycookie', base64_encode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODcyNzcyMjMsImRhdGEiOiJiNDUwNzY2NDFlMWM2MzNmNTk4NmRjMGM5Y2NhNzdlNjcxZjg3MzJhMTkyZTYxMmE2NWIwYjFhODA0MTBkYzM3YWJlZjhmYjIyNmZmMGUyNGIxNmEzZTA5OWE3OTEwM2Y5ZjU0OTFlNGZhMjBmM2NkODVkYzc4MTA5NzRmOTgxZCIsImlhdCI6MTU4NzI3NjAyM30.BjQbrI_KBUAkSFjpoxgIJbJKAF11ec739iHIfPjCHcM"));
+		// setcookie('authkeycookie', base64_encode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODcyNzcyMjMsImRhdGEiOiJiNDUwNzY2NDFlMWM2MzNmNTk4NmRjMGM5Y2NhNzdlNjcxZjg3MzJhMTkyZTYxMmE2NWIwYjFhODA0MTBkYzM3YWJlZjhmYjIyNmZmMGUyNGIxNmEzZTA5OWE3OTEwM2Y5ZjU0OTFlNGZhMjBmM2NkODVkYzc4MTA5NzRmOTgxZCIsImlhdCI6MTU4NzI3NjAyM30.BjQbrI_KBUAkSFjpoxgIJbJKAF11ec739iHIfPjCHcM"));
 
+		$authKey  = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODcyNzcyMjMsImRhdGEiOiJiNDUwNzY2NDFlMWM2MzNmNTk4NmRjMGM5Y2NhNzdlNjcxZjg3MzJhMTkyZTYxMmE2NWIwYjFhODA0MTBkYzM3YWJlZjhmYjIyNmZmMGUyNGIxNmEzZTA5OWE3OTEwM2Y5ZjU0OTFlNGZhMjBmM2NkODVkYzc4MTA5NzRmOTgxZCIsImlhdCI6MTU4NzI3NjAyM30.BjQbrI_KBUAkSFjpoxgIJbJKAF11ec739iHIfPjCHcM";
+
+		setcookie(
+			'CIUser_session_key',
+			$authKey,
+			(empty($this->config->item('cookie_lifetime')) ? 0 : time() + $this->config->item('cookie_lifetime')),
+			$this->config->item('cookie_path'),
+			$this->config->item('cookie_domain'),
+			$this->config->item('cookie_secure'),
+			TRUE
+		);
+		
 
 		// stdClass Object
 		// (

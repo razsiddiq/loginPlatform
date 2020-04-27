@@ -5,7 +5,7 @@ $(document).ready(function(){
         var obj = $(this), action = obj.attr('name'), redirect_url = obj.data('redirect'), form_table = obj.data('form-table');
         $.ajax({
             type: "POST",
-            url: base_url+'welcome/login/',
+            url: base_url+'login/login/',
             data: obj.serialize()+"&form="+form_table,
             cache: true,
             success: function (JSON) {
