@@ -13,11 +13,13 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
-
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/normalize.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/themify-icons.css">
-
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/scss/style.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -32,32 +34,30 @@
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
-                <div class="login-logo animated swing">
+                <div class="login-logo animated flip">
                     <a href="#">
                     <img src="<?php echo base_url();?>assets/img/logo.svg" alt="<?=$title;?>" title="<?=$title;?>"/>
                     </a>
                 </div>
                 <div class="login-form animated bounceIn" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
-                    <form method="post" name="login-form" id="login-form" data-form-table="login" data-redirect="<?php echo base_url();?>">
+                    <form method="post" name="login-form" id="login-form" data-form-table="login" data-redirect="<?php echo base_url();?>dashboard">
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" name="email" class="form-control" autocomplete=”off” placeholder="Email">
+                            <input type="email" name="email" class="form-control" placeholder="Email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                         <!-- <div class="checkbox">
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
                             <label class="pull-right">
-                                <a href="#">Forgotten Password?</a> 
+                                <a href="#">Forgotten Password?</a>
                             </label>
 
                         </div> -->
-                        <!-- <input type="text" name="<?php //echo $this->security->get_csrf_token_name();?>" value="<?php //echo $this->security->get_csrf_hash();?>">  -->
-                        <!-- <input type="hidden" name="ridirectpath" value="<?=$applicationname;?>"/> -->
 						<button type="submit" class="btn btn-success-1 btn-flat m-b-30 m-t-30 save">Sign in</button>     
 						                
                         <!-- <div class="register-link m-t-20 text-center">

@@ -1,7 +1,7 @@
 <?php
 
 define('API_URL','https://api-dev.tradly.app');
-define('Authorization','vb12294e1f1ac6c12361b4516c5e155d0');//e20294e1f1ac6c12361b4516c5e155d0
+define('Authorization','a34asdfe1f234c6c12361db4516c5ezerr');//e20294e1f1ac6c12361b4516c5e155d0
 define('ALLOWED_ATTRIB_VALUES',[1,2]);
 define('ALLOWED_LOCALE',['en','ar']);
 
@@ -27,6 +27,33 @@ function show_data($data){
 }
 
 
+function get_curl_function($url){
+   
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+        //"Authorization: Bearer e20294e1f1ac6c12361b4516c5e155d0"
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+}
 
 
 
@@ -60,6 +87,60 @@ function post_curl_function($url, $postData){
 }
 
 
+function delete_curl_function($url){
+   
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "DELETE",
+    CURLOPT_HTTPHEADER => array(
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+}
+
+
+function put_curl_function($url, $postData){
+  
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "PUT",
+    CURLOPT_POSTFIELDS => $postData,
+    CURLOPT_HTTPHEADER => array(
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+}
+
 
 
 function guid()
@@ -91,6 +172,38 @@ function guid()
 
     return sprintf('%08s-%04s-%04x-%04x-%012s', $time_low, $time_mid, $time_hi_and_version, $clock_seq_hi_and_reserved, $node);
 } 
+
+
+function put_curl_function_byauth($url, $postData){
+    $userSession = get_user_session();
+  
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "PUT",
+    CURLOPT_POSTFIELDS => $postData,
+    CURLOPT_HTTPHEADER => array(
+        "auth_key: ".$userSession->key->auth_key,
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+}
+
 
 
 function post_curl_function_byauth($url, $postData){  
@@ -126,6 +239,74 @@ function post_curl_function_byauth($url, $postData){
 
 }
 
+
+function get_curl_function_byauth($url){
+   
+    $userSession = get_user_session();
+    
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(
+        "auth_key: ".$userSession->key->auth_key,
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+
+}
+
+
+function delete_curl_function_byauth($url){
+    $userSession = get_user_session();
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => API_URL . $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "DELETE",
+    CURLOPT_HTTPHEADER => array(
+        "auth_key: ".$userSession->key->auth_key,
+        "Content-Type: application/json",
+        "Authorization: Bearer ".Authorization
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+
+}
+
+function attribute_types(){
+    $attribute_types = [
+        1 => 'Single Select',
+        2 => 'Multi Select',
+        3 => 'Open (Single Value)',
+        4 => 'Open (Multiple Value)',
+    ];
+    return $attribute_types;
+}
 
 
 function changeCase($string,$type){    
