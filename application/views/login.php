@@ -40,7 +40,7 @@
                     </a>
                 </div>
                 <div class="login-form animated bounceIn" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
-                    <form method="post" name="login-form" id="login-form" data-form-table="login" data-redirect="<?php echo base_url();?>dashboard">
+                    <form method="post" name="login-form" id="login-form" data-form-table="login" data-redirect="<?php echo base_url();?>dashboard?application=<?php echo base64_encode($applicationname);?>">
                         <div class="form-group">
                             <label>Email address</label>
                             <input type="email" name="email" class="form-control" placeholder="Email">

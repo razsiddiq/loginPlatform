@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 	{             
 
 
-
+        echo $applicationname = base64_decode($this->get->input('application'));
         $authKey  = $this->userSession->key->auth_key;
         $refreshKey =  $this->userSession->key->refresh_key;
         $id = $this->userSession->id;
@@ -55,9 +55,12 @@ class Dashboard extends CI_Controller {
 			TRUE
         );
 
+        show_data($this->userSession);
+        if($applicationname == 'onboarding'){
+            redirect('https://admin-dev.tradly.app');
+        }   
 
-
-        show_data($this->userSession);die;
+      die;
         // $jsonData = get_curl_function_byauth($this->dataUrl);
         // $extractData = json_decode($jsonData);
         // $this->data['productData'] = [];

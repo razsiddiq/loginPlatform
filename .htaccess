@@ -7,7 +7,7 @@
 </IfModule>
 
 
-SetEnv CI_ENV "development"
+SetEnv CI_ENV "production"
 
 #production
 #development
