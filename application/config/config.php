@@ -403,10 +403,10 @@ $config['sess_regenerate_destroy'] = FALSE;
 |
 */
 $config['cookie_prefix']	= 'auth_';
-$config['cookie_domain']	= '.tradly.app';
+$config['cookie_domain']	= (ENVIRONMENT == 'production') ? '.tradly.app' :'';
 $config['cookie_path']		= '/';
-$config['cookie_secure']	= TRUE;
-$config['cookie_httponly'] 	= TRUE;
+$config['cookie_secure']	= (ENVIRONMENT == 'production') ? TRUE : FALSE;
+$config['cookie_httponly'] 	= (ENVIRONMENT == 'production') ? TRUE : FALSE;
 
 /*
 |--------------------------------------------------------------------------

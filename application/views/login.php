@@ -28,10 +28,20 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/js/toastr/toastr.min.css">
 
 	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
 </head>
 <body>
+    <?php 
+    // show_data($_COOKIE);
+    // echo count($_COOKIE);
+    // if(count($_COOKIE) > 0) {
+    //     echo "Cookies are enabled.";
+    // } else {
+    //     echo "Cookies are disabled.";
+    // }
+    
+    ?>
     <div class="sufee-login d-flex align-content-center flex-wrap">
+    <!-- <div class="page-loader"></div> -->
         <div class="container">
             <div class="login-content">
                 <div class="login-logo animated flip">

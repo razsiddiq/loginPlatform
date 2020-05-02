@@ -25,9 +25,9 @@ class Welcome extends CI_Controller {
 	{ 
 		parent::__construct();
 		$this->userSession = $this->session->userdata('username');
+		$this->load->helper('cookie');
 
-		$this->loginUrl = '/v1/users/login'; 
-	
+		$this->loginUrl = '/v1/users/login';	
 	}
 
 	public function index()
@@ -38,7 +38,6 @@ class Welcome extends CI_Controller {
 		}
 
 		$data['applicationname'] = ($this->input->get('application')) ?? 'onboarding';
-
 		$this->load->view('login',$data);
 	}
 
@@ -91,8 +90,38 @@ class Welcome extends CI_Controller {
 	public function logout(){
 		$sess_array = array('username' => '');
 		$this->session->sess_destroy();
+
+		setcookie(
+			'CIUser_session_key',
+			'',
+			time()-3600,
+			$this->config->item('cookie_path'),
+			$this->config->item('cookie_domain'),
+			$this->config->item('cookie_secure'),
+			TRUE
+        );
+
+        setcookie(
+			'CIUser_session_rkey',
+			'',
+			time()-3600,
+			$this->config->item('cookie_path'),
+			$this->config->item('cookie_domain'),
+			$this->config->item('cookie_secure'),
+			TRUE
+        );
+
+        setcookie(
+			'CIUser_session_Id',
+			'',
+			time()-3600,
+			$this->config->item('cookie_path'),
+			$this->config->item('cookie_domain'),
+			$this->config->item('cookie_secure'),
+			TRUE
+		);
 		
-		setcookie("tokencookie", "", time()-3600);
+
 		$Return['result'] = 'Successfully Logout.';
 		redirect('', 'refresh');
 	}
