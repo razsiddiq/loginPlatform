@@ -10,9 +10,10 @@ class Dashboard extends CI_Controller {
           $this->userSession = $this->session->userdata('username');	  
           $this->load->helper('cookie');
        
-          if( !$this->userSession ){
-              redirect('/');
+          if( !$this->userSession->key->auth_key ){
+              redirect('welcome/logout');
           }
+
 
     }
 
