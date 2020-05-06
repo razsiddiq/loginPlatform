@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?=$title;?></title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="description" content="Tradly Admin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -40,7 +40,7 @@
     // }
     
     ?>
-    <div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="d-flex align-content-center flex-wrap">
     <!-- <div class="page-loader"></div> -->
         <div class="container">
             <div class="login-content">

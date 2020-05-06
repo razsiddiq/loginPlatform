@@ -23,8 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] =  (ENVIRONMENT == 'production') ? 'https://id.tradly.app/' :'http://localhost/loginPlatform/';
+$config['base_url'] =  (ENVIRONMENT == 'production') ? 'https://id.dev.tradly.app/' :'http://localhost/loginPlatform/';
 
+$config['rest_api_url'] = 'https://api.dev.tradly.app';
+
+$config['admin_key'] = 'a34asdfe1f234c6c12361db4516c5ezerr';
+
+$config['onboarding_redirect'] = 'https://launch.tradly.app';
+
+$config['admin_redirect'] = 'https://admin.dev.tradly.app';
 
 
 /*

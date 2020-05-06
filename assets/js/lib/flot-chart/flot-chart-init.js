@@ -3,7 +3,7 @@
 
  "use strict"; // Start of use strict
 
- var SufeeAdmin = {
+ var TradlyAdmin = {
 
     cpuLoad: function(){
 
@@ -363,12 +363,12 @@
 };
 
 $(document).ready(function() {
-    SufeeAdmin.cpuLoad();
-    SufeeAdmin.lineFlot();
-    SufeeAdmin.pieFlot();
-    SufeeAdmin.line2Flot();
-    SufeeAdmin.barFlot();
-    SufeeAdmin.plotting();
+    TradlyAdmin.cpuLoad();
+    TradlyAdmin.lineFlot();
+    TradlyAdmin.pieFlot();
+    TradlyAdmin.line2Flot();
+    TradlyAdmin.barFlot();
+    TradlyAdmin.plotting();
 
 });
 

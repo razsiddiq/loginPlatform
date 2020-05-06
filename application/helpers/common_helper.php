@@ -1,6 +1,8 @@
 <?php
-define('API_URL','https://api.dev.tradly.app');
-define('Authorization','a34asdfe1f234c6c12361db4516c5ezerr');
+$CI =& get_instance();
+define('API_URL',$CI->config->item('rest_api_url'));
+define('Authorization',$CI->config->item('admin_key'));
+
 
 /*Function to set JSON output*/
 function output($Return=array()){

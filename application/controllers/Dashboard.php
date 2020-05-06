@@ -58,16 +58,14 @@ class Dashboard extends CI_Controller {
 
        
         if($applicationname == 'onboarding'){
-            redirect('https://launch.tradly.app');
+            redirect($this->config->item('onboarding_redirect'));
         }else if($applicationname == 'admin'){
-
             if(ENVIRONMENT == 'production'){
-                redirect('https://admin-dev.tradly.app');
+                redirect($this->config->item('admin_redirect'));
             } 
             else{
                 redirect('http://localhost/tradly-admin');
-            }
-            
+            }            
         }    
     }
 
