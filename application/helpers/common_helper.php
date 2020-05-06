@@ -1,5 +1,5 @@
 <?php
-define('API_URL','https://api-dev.tradly.app');
+define('API_URL','https://api.dev.tradly.app');
 define('Authorization','a34asdfe1f234c6c12361db4516c5ezerr');
 
 /*Function to set JSON output*/

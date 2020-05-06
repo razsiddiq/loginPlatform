@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 			redirect('/dashboard');
 		}
 
-		$data['applicationname'] = ($this->input->get('application')) ?? 'onboarding';
+		$data['applicationname'] = ($this->input->get('application')) ?? 'admin';
 		$this->load->view('login',$data);
 	}
 
